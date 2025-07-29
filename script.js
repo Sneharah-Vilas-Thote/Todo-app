@@ -1,22 +1,23 @@
-function addTask() {
-  const taskInput = document.getElementById("taskInput");
-  const tasksContainer = document.getElementById("tasksContainer");
+const form = document.getElementById("task-form");
+const taskInput = document.getElementById("task-input");
+const taskList = document.getElementById("task-list");
 
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
   const taskText = taskInput.value.trim();
-  if (taskText === "") return;
+  if (taskText !== "") {
+    const taskCard = document.createElement("div");
+    taskCard.className = "task-card";
+    taskCard.textContent = taskText;
+    taskList.appendChild(taskCard);
+    taskInput.value = "";
+  }
+});
 
-  const taskCard = document.createElement("div");
-  taskCard.className = "task";
-  taskCard.innerHTML = `
-    <p>${taskText}</p>
-    <button onclick="removeTask(this)">🗑</button>
-  `;
-
-  tasksContainer.appendChild(taskCard);
-  taskInput.value = "";
+function scrollLeft() {
+  taskList.scrollBy({ left: -250, behavior: "smooth" });
 }
 
-function removeTask(button) {
-  const taskCard = button.parentElement;
-  taskCard.remove();
+function scrollRight() {
+  taskList.scrollBy({ left: 250, behavior: "smooth" });
 }
