@@ -14,7 +14,8 @@ A clean and minimal To-Do list app built with **HTML, CSS, JavaScript**.
 - JavaScript
 
 ## 🌐 Live Demo
-👉 [Click here to see live](https://your-username.github.io/todo-app)
+## 🌐 Live Demo
+👉 [Click here to see live](https://sneharah-vilas-thote.github.io/Todo-app/)
 
 ## 📁 How to Use
 1. Clone or download the repo
@@ -23,4 +24,4 @@ A clean and minimal To-Do list app built with **HTML, CSS, JavaScript**.
 
 ---
 
-Made with ❤️ by [Your Name]
+Made with ❤️ by Sneharsh Vilas Thote
