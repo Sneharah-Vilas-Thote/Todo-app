@@ -2,19 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Awesome To-Do App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🚀 Daily Task Launcher</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div class="app-container">
-    <h1>🚀 Your Smart To-Do</h1>
-    <div class="input-area">
-      <input type="text" id="taskInput" placeholder="Enter your awesome task..." />
-      <button onclick="addTask()">➕</button>
+  <div class="container">
+    <h1>🚀 Daily Task Launcher</h1>
+    <form id="task-form">
+      <input type="text" id="task-input" placeholder="🎯 Add your mission here..." required />
+      <button type="submit">➕ Add Task</button>
+    </form>
+    <div class="task-scroll-container">
+      <button class="scroll-btn left" onclick="scrollLeft()">⬅️</button>
+      <div id="task-list" class="task-list"></div>
+      <button class="scroll-btn right" onclick="scrollRight()">➡️</button>
     </div>
-    <div class="tasks-container" id="tasksContainer"></div>
   </div>
   <script src="script.js"></script>
 </body>
