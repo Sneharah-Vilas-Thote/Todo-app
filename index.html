@@ -1,20 +1,20 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Awesome ToDo App</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>Awesome To-Do App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div class="container">
-    <h1>🌟 My Daily Goals</h1>
-    <form id="task-form">
-      <input type="text" id="task-input" placeholder="✍️ Add a new task..." required/>
-      <button type="submit">➕ Add Task</button>
-    </form>
-    <ul id="task-list"></ul>
+  <div class="app-container">
+    <h1>🚀 Your Smart To-Do</h1>
+    <div class="input-area">
+      <input type="text" id="taskInput" placeholder="Enter your awesome task..." />
+      <button onclick="addTask()">➕</button>
+    </div>
+    <div class="tasks-container" id="tasksContainer"></div>
   </div>
   <script src="script.js"></script>
 </body>
