@@ -1,30 +1,22 @@
-// script.js
-const form = document.getElementById('task-form');
-const input = document.getElementById('task-input');
-const list = document.getElementById('task-list');
+function addTask() {
+  const taskInput = document.getElementById("taskInput");
+  const tasksContainer = document.getElementById("tasksContainer");
 
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-  const taskText = input.value.trim();
+  const taskText = taskInput.value.trim();
+  if (taskText === "") return;
 
-  if (taskText !== '') {
-    const li = document.createElement('li');
+  const taskCard = document.createElement("div");
+  taskCard.className = "task";
+  taskCard.innerHTML = `
+    <p>${taskText}</p>
+    <button onclick="removeTask(this)">🗑</button>
+  `;
 
-    const span = document.createElement('span');
-    span.textContent = taskText;
-    span.classList.add('task-text');
+  tasksContainer.appendChild(taskCard);
+  taskInput.value = "";
+}
 
-    const delBtn = document.createElement('button');
-    delBtn.innerHTML = '❌';
-    delBtn.classList.add('delete-btn');
-
-    delBtn.addEventListener('click', function () {
-      li.remove();
-    });
-
-    li.appendChild(span);
-    li.appendChild(delBtn);
-    list.appendChild(li);
-    input.value = '';
-  }
-});
+function removeTask(button) {
+  const taskCard = button.parentElement;
+  taskCard.remove();
+}
