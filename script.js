@@ -1,18 +1,30 @@
-function addTask() {
-  const taskInput = document.getElementById("taskInput");
-  const taskText = taskInput.value.trim();
+// script.js
+const form = document.getElementById('task-form');
+const input = document.getElementById('task-input');
+const list = document.getElementById('task-list');
 
-  if (taskText === "") return;
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  const taskText = input.value.trim();
 
-  const li = document.createElement("li");
-  li.innerHTML = `
-    ${taskText}
-    <button onclick="removeTask(this)">X</button>
-  `;
-  document.getElementById("taskList").appendChild(li);
-  taskInput.value = "";
-}
+  if (taskText !== '') {
+    const li = document.createElement('li');
 
-function removeTask(button) {
-  button.parentElement.remove();
-}
+    const span = document.createElement('span');
+    span.textContent = taskText;
+    span.classList.add('task-text');
+
+    const delBtn = document.createElement('button');
+    delBtn.innerHTML = '❌';
+    delBtn.classList.add('delete-btn');
+
+    delBtn.addEventListener('click', function () {
+      li.remove();
+    });
+
+    li.appendChild(span);
+    li.appendChild(delBtn);
+    list.appendChild(li);
+    input.value = '';
+  }
+});
