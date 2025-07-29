@@ -1,85 +1,122 @@
-/* style.css */
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #f1f5f9;
+/* Reset and fonts */
+* {
   margin: 0;
-  padding: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-.container {
-  width: 90%;
-  max-width: 700px;
-  background: white;
+body {
+  height: 100vh;
+  background: linear-gradient(-45deg, #4158D0, #C850C0, #FFCC70, #0099F7);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.app-container {
+  width: 95%;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
   padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  text-align: center;
+  color: white;
 }
 
 h1 {
-  text-align: center;
+  font-size: 2rem;
   margin-bottom: 20px;
-  color: #333;
 }
 
-form {
+.input-area {
   display: flex;
+  justify-content: center;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
-input {
-  flex: 1;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 16px;
+input[type="text"] {
+  padding: 12px 20px;
+  width: 70%;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1rem;
 }
 
 button {
-  padding: 10px 15px;
+  padding: 12px 18px;
+  background-color: #00C9A7;
   border: none;
-  background-color: #3b82f6;
   color: white;
-  border-radius: 8px;
+  font-size: 1.2rem;
+  border-radius: 10px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 button:hover {
-  background-color: #2563eb;
+  background-color: #00a88a;
 }
 
-#task-list {
+.tasks-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  list-style: none;
-  padding: 0;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
 }
 
-#task-list li {
-  background-color: #f3f4f6;
-  padding: 12px 15px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.task {
   min-width: 200px;
-  flex-grow: 1;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  color: #fff;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
 }
 
-.task-text {
-  flex: 1;
-  margin-right: 10px;
+.task:hover {
+  transform: translateY(-5px);
 }
 
-.delete-btn {
-  background: none;
+.task button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff6b6b;
   border: none;
-  color: #ef4444;
-  font-size: 18px;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
   cursor: pointer;
+}
+
+.task button:hover {
+  background: #e63946;
+}
+
+/* Scrollbar styling */
+.tasks-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.tasks-container::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.4);
+  border-radius: 10px;
 }
