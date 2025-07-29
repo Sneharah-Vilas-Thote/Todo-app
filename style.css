@@ -1,122 +1,99 @@
-/* Reset and fonts */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
 }
 
 body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #191970, #6a0dad);
+  color: white;
   height: 100vh;
-  background: linear-gradient(-45deg, #4158D0, #C850C0, #FFCC70, #0099F7);
-  background-size: 400% 400%;
-  animation: gradientMove 15s ease infinite;
   display: flex;
   justify-content: center;
-  align-items: center;
+  padding-top: 30px;
 }
 
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.app-container {
-  width: 95%;
-  max-width: 900px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+.container {
+  width: 90%;
+  max-width: 1200px;
   text-align: center;
-  color: white;
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 20px;
+  text-shadow: 2px 2px #000;
 }
 
-.input-area {
+form {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 input[type="text"] {
-  padding: 12px 20px;
-  width: 70%;
+  width: 60%;
+  padding: 12px;
   border: none;
   border-radius: 10px;
-  outline: none;
   font-size: 1rem;
 }
 
-button {
-  padding: 12px 18px;
-  background-color: #00C9A7;
+button[type="submit"] {
+  padding: 12px 20px;
+  background-color: #ff6ec4;
   border: none;
-  color: white;
-  font-size: 1.2rem;
   border-radius: 10px;
+  color: white;
   cursor: pointer;
   transition: 0.3s;
+  font-size: 1rem;
 }
 
-button:hover {
-  background-color: #00a88a;
+button[type="submit"]:hover {
+  background-color: #f94892;
 }
 
-.tasks-container {
+.task-scroll-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.scroll-btn {
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.task-list {
   display: flex;
   gap: 15px;
   overflow-x: auto;
-  padding-bottom: 10px;
-}
-
-.task {
-  min-width: 200px;
-  background: rgba(255,255,255,0.2);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
   padding: 20px;
-  color: #fff;
-  position: relative;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  flex-shrink: 0;
-  transition: transform 0.3s ease;
+  scroll-behavior: smooth;
+  width: 100%;
 }
 
-.task:hover {
-  transform: translateY(-5px);
-}
-
-.task button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: #ff6b6b;
-  border: none;
+.task-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid #ffffff3a;
   color: white;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  cursor: pointer;
+  padding: 15px 20px;
+  border-radius: 15px;
+  min-width: 200px;
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s;
 }
 
-.task button:hover {
-  background: #e63946;
-}
-
-/* Scrollbar styling */
-.tasks-container::-webkit-scrollbar {
-  height: 8px;
-}
-
-.tasks-container::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.4);
-  border-radius: 10px;
+.task-card:hover {
+  transform: scale(1.05);
 }
